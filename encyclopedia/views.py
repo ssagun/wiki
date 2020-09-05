@@ -2,7 +2,6 @@ import markdown2
 import random
 import re
 from django.shortcuts import render, redirect, HttpResponse
-
 from . import util
 
 pagelist = util.list_entries()
@@ -37,7 +36,7 @@ def wiki(request, title):
 # random page
 
 
-def random_page(request):
+def random(request):
 
     # random no. in [0-len[pagelist]-1]]
     r = random.randint(0, len(pagelist)-1)
@@ -70,7 +69,7 @@ def search(request):
 # new page
 
 
-def add_page(request):
+def add(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         content = request.POST.get('content')
@@ -92,7 +91,7 @@ def add_page(request):
 # edit markdown
 
 
-def edit_page(request, title):
+def edit(request, title):
     pagecontent = util.get_entry(title)
     if request.method == 'GET':
         return render(request, "encyclopedia/edit.html", {
