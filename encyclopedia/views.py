@@ -2,7 +2,6 @@ import markdown2
 import random
 import re
 from django.shortcuts import render, redirect, HttpResponse
-
 from . import util
 
 pagelist = util.list_entries()
